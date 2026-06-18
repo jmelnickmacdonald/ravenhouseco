@@ -396,6 +396,60 @@
       );
     }
 
+    /* ─── EGG SIGNUP ─────────────────────────── */
+    .egg-signup {
+      background: var(--ink);
+      padding: 6rem 7vw;
+    }
+    .egg-signup-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6vw; align-items: center;
+    }
+    .egg-signup-text .section-eyebrow { color: var(--terra-pale); opacity: 0.75; }
+    .egg-signup-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300; line-height: 1.05;
+      color: var(--paper); margin-bottom: 1rem;
+    }
+    .egg-signup-text p {
+      font-size: 0.97rem; color: rgba(249,245,238,0.5);
+      line-height: 1.85; font-weight: 300;
+    }
+    .egg-form { display: flex; flex-direction: column; gap: 1rem; }
+    .egg-form-fields { display: flex; flex-direction: column; gap: 0.8rem; }
+    .egg-form input, .egg-form select {
+      width: 100%;
+      background: rgba(249,245,238,0.06);
+      border: 1px solid rgba(249,245,238,0.15);
+      color: var(--paper);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem; font-weight: 300;
+      padding: 0.9rem 1.2rem;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .egg-form input::placeholder { color: rgba(249,245,238,0.3); }
+    .egg-form input:focus, .egg-form select:focus {
+      outline: none;
+      border-color: rgba(249,245,238,0.4);
+    }
+    .egg-form select { cursor: pointer; color: rgba(249,245,238,0.6); }
+    .egg-form select option { background: var(--ink); color: var(--paper); }
+    .egg-form button {
+      background: var(--terra);
+      color: white;
+      border: none; cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      padding: 1rem 2.4rem;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+    .egg-form button:hover { background: var(--terra-light); }
+
     /* ─── FOOTER ─────────────────────────────── */
     footer {
       background: var(--ink);
@@ -464,6 +518,7 @@
       .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 175px); }
       .mosaic-item.tall { grid-row: span 1; }
       .eggs-panel { height: 72vh; }
+      .egg-signup-inner { grid-template-columns: 1fr; gap: 3rem; }
       .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
       .footer-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
     }
@@ -505,8 +560,9 @@
     </div>
     <div class="intro-right reveal d1">
       <div class="intro-rule"></div>
-      <p class="intro-p">In 2023 we moved to the Annapolis Valley and found ourselves owners of a nearly 200-year-old home. Six of us. No experience to speak of.</p>
-      <p class="intro-p">What started as a family finding home has become a world we love to share — fresh eggs, baby goats, handmade goods, and the everyday rhythm of a life lived close to the land.</p>
+      <p class="intro-p">In 2023, we packed up four kids under the age of eight and set out to renovate a nearly 200-year-old house in the Annapolis Valley with far more optimism than experience.</p>
+      <p class="intro-p">We brought nine chickens with us from Ontario. That was the beginning. The goats came next, and the rest, as they say, is history.</p>
+      <p class="intro-p">Call it a hobby farm — or one of those hobbies that quietly becomes a full-time job with zero benefits and zero pay, aside from an unreasonable amount of poop and the benefit of fresh eggs.</p>
     </div>
   </div>
 </div>
@@ -518,7 +574,7 @@
   <div class="panel-body">
     <span class="panel-eyebrow">The land & animals</span>
     <h2 class="panel-h">Farm &<br><em>Homestead</em></h2>
-    <p class="panel-p">Goats, cattle, horses, chickens, ducks — and the daily work of caring for all of them. We didn't grow up doing this. We're still figuring it out, and that's fine.</p>
+    <p class="panel-p">Lions and tigers and bears — well, not quite. Chickens, ducks, turkeys, geese, goats, pigs, a horse, a cow, cats, and surely something else quietly freeloading off the copious amounts of feed we purchase and provide. We didn't grow up doing this. We're figuring it out one animal at a time.</p>
     <a href="rh-farm.html" class="btn-ghost">Meet the farm</a>
   </div>
 </div>
@@ -527,8 +583,8 @@
 <div class="quote reveal">
   <div class="quote-bg"></div>
   <div class="quote-inner">
-    <blockquote>"We are raising our children to notice, to wonder, and to take part in the crazy we call life."</blockquote>
-    <cite>— Raven House Co.</cite>
+    <blockquote>"We are raising our children to notice, to wonder, to adapt, and to work hard. We are thrilled to have them joining us on this crazy little adventure."</blockquote>
+    <cite></cite>
   </div>
 </div>
 
@@ -542,8 +598,7 @@
     <div class="split-text-inner">
       <span class="split-eyebrow">Made by hand</span>
       <h2 class="split-h">Shop &<br><em>Studio</em></h2>
-      <p class="split-p">Fresh eggs from the flock. Candles poured in the studio shed. Seasonal goods when the garden allows.</p>
-      <p class="split-p">Everything we sell comes from here.</p>
+      <p class="split-p">From the studio shed at the edge of the trees. Goat's milk soap, soy candles, and whimsical handmade things we dream up as we go. Fresh eggs from a flock that takes its job very seriously. Or doesn't. And then holds out on us for days because it's too hot, too cold, too wet, too dry. What can I say. They are a particular gaggle of girls.</p>
       <a href="rh-shop.html" class="btn-ink">Visit the shop</a>
     </div>
   </div>
@@ -590,7 +645,7 @@
     <div class="about-split-inner">
       <span class="split-eyebrow">Our story</span>
       <h2 class="split-h">The ravens were<br><em>waiting when<br>we arrived.</em></h2>
-      <p class="split-p">They circled the driveway on moving day, as if they'd been expecting us. We named the place after them. It felt right.</p>
+      <p class="split-p">Someone always needs something and one of us always seems to find mud or poop, but it's home and we wouldn't change it for the world.</p>
       <a href="rh-about.html" class="btn-ink">Our story</a>
     </div>
   </div>
@@ -602,7 +657,7 @@
   <div class="texture-content">
     <span class="tc-eyebrow">A working homestead</span>
     <h2>Loud. Muddy.<br><em>Exactly right.</em></h2>
-    <p>We share the actual version of this life, not the tidy one. The animals don't care what's on the calendar. Neither, it turns out, do we.</p>
+    <p>We share the real version of this life, not the tidy Pinterest-perfect one.</p>
   </div>
 </div>
 
@@ -613,8 +668,32 @@
   <div class="panel-body right">
     <span class="panel-eyebrow">Available now</span>
     <h2 class="panel-h">Laid by happy birds.<br>Collected by <em>noisy kids.</em></h2>
-    <p class="panel-p">Pasture-raised, mixed flock. Cream, brown, and blue-green shells. Sold by the dozen, Greenwood area pickup.</p>
+    <p class="panel-p">Pasture-raised and collected daily. Chicken eggs in cream, brown, and blue-green, or duck eggs if that's your thing. Cluckers or quackers, your call. Sold by the dozen, Greenwood area pickup.</p>
     <a href="rh-contact.html" class="btn-ghost">Get on the egg list</a>
+  </div>
+</div>
+
+<!-- EGG LIST SIGNUP -->
+<div class="egg-signup">
+  <div class="egg-signup-inner">
+    <div class="egg-signup-text reveal">
+      <span class="section-eyebrow">Join the list</span>
+      <h2>Never miss a dozen.</h2>
+      <p>We'll let you know when eggs are available and when something new comes out of the studio. No spam. Just eggs and the occasional exciting animal update.</p>
+    </div>
+    <form class="egg-form reveal d1" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="egg-form-fields">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <select name="preference">
+          <option value="" disabled selected>Cluckers or quackers?</option>
+          <option value="chicken">Chicken eggs</option>
+          <option value="duck">Duck eggs</option>
+          <option value="both">Both, please</option>
+        </select>
+      </div>
+      <button type="submit">Get me on the list</button>
+    </form>
   </div>
 </div>
 
