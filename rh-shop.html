@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop & Studio — Raven House Co.</title>
+  <meta name="description" content="Goat's milk soap, soy candles, handmade goods, and fresh eggs from the Raven House studio in the Annapolis Valley.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:      #FFFFFF;
+      --off-white:  #F8F8F6;
+      --ink:        #1A1612;
+      --ink-mid:    #3C3028;
+      --ink-light:  #6A5C50;
+      --terra:      #9B5A36;
+      --terra-light:#C48060;
+      --terra-pale: #E8D0BC;
+      --stone:      #C4B8A8;
+      --stone-mid:  #8C8070;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--white); color: var(--ink); font-size: 16px; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── HEADER ─────────────────────────────── */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 300; background: var(--ink); display: flex; flex-direction: column; align-items: center; padding: 16px 2rem 13px; transition: padding 0.35s ease; }
+    .site-header.scrolled { padding: 10px 2rem 9px; }
+    .header-logo { height: 58px; width: auto; filter: brightness(0) invert(1); opacity: 0.9; margin-bottom: 10px; transition: height 0.35s, margin 0.35s; }
+    .site-header.scrolled .header-logo { height: 36px; margin-bottom: 6px; }
+    .header-nav { display: flex; gap: 2.8rem; list-style: none; }
+    .header-nav a { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.5); transition: color 0.2s; }
+    .header-nav a:hover { color: var(--terra-pale); }
+    .header-nav a.active { color: var(--terra-pale); }
+    .header-nav .nav-hi { color: var(--terra-pale); }
+    .header-nav .nav-hi:hover { color: white; }
+
+    /* ─── PAGE HEADER ────────────────────────── */
+    .page-header { position: relative; height: 70vh; min-height: 520px; overflow: hidden; }
+    .page-header-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+    .page-header-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,14,10,0.92) 0%, rgba(18,14,10,0.45) 45%, rgba(18,14,10,0.2) 100%), linear-gradient(to bottom, rgba(18,14,10,0.5) 0%, transparent 25%); }
+    .page-header-content { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; padding: 0 7vw 5rem; }
+    .eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--terra); display: block; margin-bottom: 0.8rem; }
+    .page-header-content .eyebrow { color: var(--terra-pale); opacity: 0.8; }
+    .page-header-content h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 300; line-height: 0.92; color: white; letter-spacing: -0.01em; }
+    .page-header-content h1 em { font-style: italic; color: var(--terra-pale); }
+
+    /* ─── INTRO ──────────────────────────────── */
+    .section-wrap { max-width: 1400px; margin: 0 auto; padding: 7rem 7vw; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 6vw; align-items: start; }
+    .section-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4.5vw, 4rem); font-weight: 300; line-height: 1.05; color: var(--ink); }
+    .section-h em { font-style: italic; color: var(--terra); }
+    .text-rule { width: 40px; height: 1px; background: var(--terra); margin-bottom: 1.8rem; }
+    .body-p { font-size: 1.02rem; color: var(--ink-light); line-height: 1.95; font-weight: 300; margin-bottom: 1.1rem; }
+    .body-p:last-child { margin-bottom: 0; }
+
+    /* ─── SHOP ITEMS ─────────────────────────── */
+    .shop-items { background: var(--off-white); padding: 7rem 7vw; }
+    .shop-items-inner { max-width: 1200px; margin: 0 auto; }
+    .shop-head { margin-bottom: 4rem; }
+    .shop-head h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--ink); }
+    .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .shop-card { position: relative; overflow: hidden; aspect-ratio: 4/5; }
+    .shop-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .shop-card:hover img { transform: scale(1.06); }
+    .shop-card-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.8rem; background: linear-gradient(to top, rgba(18,14,10,0.88) 0%, transparent 100%); }
+    .shop-card-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra-pale); opacity: 0.75; display: block; margin-bottom: 0.4rem; }
+    .shop-card-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: white; margin-bottom: 0.4rem; }
+    .shop-card-body p { font-size: 0.82rem; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.55; }
+
+    /* ─── THE SHED ───────────────────────────── */
+    .the-shed { padding: 7rem 7vw; background: var(--white); }
+    .the-shed-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6vw; align-items: center; }
+    .shed-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+    .shed-photos .sp-tall { grid-row: span 2; overflow: hidden; }
+    .shed-photos .sp-sm { overflow: hidden; }
+    .shed-photos .sp-tall { height: 460px; }
+    .shed-photos .sp-sm { height: 226px; }
+    .shed-photos img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .shed-photos div:hover img { transform: scale(1.04); }
+    .shed-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.1; color: var(--ink); margin-bottom: 1.2rem; }
+    .shed-text h2 em { font-style: italic; color: var(--terra); }
+
+    /* ─── AVAILABILITY NOTE ──────────────────── */
+    .availability { background: var(--ink); padding: 6rem 7vw; text-align: center; }
+    .availability-inner { max-width: 680px; margin: 0 auto; }
+    .availability .eyebrow { color: var(--terra-pale); opacity: 0.7; }
+    .availability h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; color: white; line-height: 1.2; margin-bottom: 1.2rem; margin-top: 0.4rem; }
+    .availability p { font-size: 1rem; color: rgba(255,255,255,0.48); line-height: 1.85; font-weight: 300; margin-bottom: 1rem; }
+
+    /* ─── EGGS PANEL ─────────────────────────── */
+    .eggs-panel { position: relative; height: 78vh; min-height: 520px; overflow: hidden; }
+    .panel-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .eggs-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,14,10,0.92) 0%, rgba(18,14,10,0.5) 40%, rgba(18,14,10,0.12) 65%, transparent 100%); }
+    .panel-body { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; padding: 0 7vw 4.5rem; }
+    .panel-body.right { text-align: right; }
+    .panel-body .eyebrow { color: var(--terra-pale); opacity: 0.8; }
+    .panel-body.right .panel-p { margin-left: auto; }
+    .panel-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 300; line-height: 0.95; color: white; margin-bottom: 1.1rem; }
+    .panel-h em { font-style: italic; color: var(--terra-pale); }
+    .panel-p { font-size: 1rem; color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.75; max-width: 520px; margin-bottom: 1.8rem; }
+    .btn-ghost { display: inline-block; border: 1px solid rgba(255,255,255,0.42); color: white; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; padding: 0.8rem 2rem; transition: background 0.25s, border-color 0.25s; }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+
+    /* ─── EGG SIGNUP ─────────────────────────── */
+    .egg-signup { background: var(--ink); padding: 6rem 7vw; border-top: 1px solid rgba(255,255,255,0.06); }
+    .egg-signup-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6vw; align-items: center; }
+    .egg-signup-text .eyebrow { color: var(--terra-pale); opacity: 0.75; }
+    .egg-signup-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.05; color: white; margin-bottom: 1rem; }
+    .egg-signup-text p { font-size: 0.97rem; color: rgba(255,255,255,0.45); line-height: 1.85; font-weight: 300; }
+    .egg-form { display: flex; flex-direction: column; gap: 1rem; }
+    .egg-form-fields { display: flex; flex-direction: column; gap: 0.8rem; }
+    .egg-form input, .egg-form select { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); color: white; font-family: 'Lato', sans-serif; font-size: 0.9rem; font-weight: 300; padding: 0.9rem 1.2rem; transition: border-color 0.2s; -webkit-appearance: none; }
+    .egg-form input::placeholder { color: rgba(255,255,255,0.28); }
+    .egg-form input:focus, .egg-form select:focus { outline: none; border-color: rgba(255,255,255,0.38); }
+    .egg-form select { cursor: pointer; color: rgba(255,255,255,0.55); }
+    .egg-form select option { background: var(--ink); color: white; }
+    .egg-form button { background: var(--terra); color: white; border: none; cursor: pointer; font-family: 'Lato', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; padding: 1rem 2.4rem; transition: background 0.2s; align-self: flex-start; }
+    .egg-form button:hover { background: var(--terra-light); }
+    .egg-thankyou { color: var(--terra-pale); font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; font-weight: 300; line-height: 1.6; padding: 1.5rem 0; }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    footer { background: var(--ink); padding: 5rem 7vw 2.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 4rem; padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 2rem; }
+    .footer-brand img { height: 52px; width: auto; filter: brightness(0) invert(1); opacity: 0.72; margin-bottom: 1.2rem; }
+    .footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.35); line-height: 1.85; max-width: 290px; }
+    .footer-col h4 { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--terra-pale); opacity: 0.6; margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul a { font-size: 0.9rem; color: rgba(255,255,255,0.38); transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--terra-pale); }
+    .footer-email { margin-top: 1.5rem; }
+    .footer-email a { font-size: 0.9rem; color: var(--terra-pale); opacity: 0.72; transition: opacity 0.2s; }
+    .footer-email a:hover { opacity: 1; }
+    .footer-bottom { display: flex; justify-content: space-between; font-size: 0.7rem; color: rgba(255,255,255,0.18); }
+
+    /* ─── REVEAL ─────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.95s ease, transform 0.95s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.12s; }
+    .d2 { transition-delay: 0.24s; }
+
+    /* ─── MOBILE ─────────────────────────────── */
+    @media (max-width: 820px) {
+      .header-nav { gap: 1.4rem; }
+      .header-nav a { font-size: 0.58rem; letter-spacing: 0.14em; }
+      .two-col { grid-template-columns: 1fr; gap: 3rem; }
+      .shop-grid { grid-template-columns: 1fr 1fr; }
+      .the-shed-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .shed-photos .sp-tall { height: 320px; }
+      .shed-photos .sp-sm { height: 155px; }
+      .egg-signup-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <img src="ravenhouselogo.png" alt="Raven House Co." class="header-logo">
+  <ul class="header-nav">
+    <li><a href="rh-about.html">About</a></li>
+    <li><a href="rh-farm.html">Farm & Homestead</a></li>
+    <li><a href="rh-shop.html" class="active">Shop & Studio</a></li>
+    <li><a href="rh-contact.html" class="nav-hi">Say Hello</a></li>
+  </ul>
+</header>
+
+<div class="page-header">
+  <img class="page-header-img" src="studio-shed.jpg" alt="The Raven House studio shed">
+  <div class="page-header-overlay"></div>
+  <div class="page-header-content">
+    <span class="eyebrow">Shop & Studio</span>
+    <h1>Made here.<br><em>From what the<br>seasons give us.</em></h1>
+  </div>
+</div>
+
+<div style="background:var(--white);">
+  <div class="section-wrap">
+    <div class="two-col">
+      <div class="reveal">
+        <h2 class="section-h">Everything we sell<br>comes from<br><em>this place.</em></h2>
+      </div>
+      <div class="reveal d1">
+        <div class="text-rule"></div>
+        <p class="body-p">From the studio shed at the edge of the trees. Goat's milk soap, soy candles, and whimsical handmade things we dream up as we go.</p>
+        <p class="body-p">Fresh eggs from a flock that takes its job very seriously. Or doesn't. And then holds out on us for days because it's too hot, too cold, too wet, too dry. What can I say. They are a particular gaggle of girls.</p>
+        <p class="body-p">Nothing is shipped in. If we're selling it, it came from here.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="shop-items">
+  <div class="shop-items-inner">
+    <div class="shop-head reveal">
+      <span class="eyebrow">What we make</span>
+      <h2>From the studio and the land.</h2>
+    </div>
+    <div class="shop-grid reveal">
+      <div class="shop-card">
+        <img src="studio-shed.jpg" alt="The studio shed">
+        <div class="shop-card-body">
+          <span class="shop-card-tag">Year-round</span>
+          <h3>Soy Candles</h3>
+          <p>Small-batch, made in the shed. Scents change with what we're growing and what the season calls for.</p>
+        </div>
+      </div>
+      <div class="shop-card">
+        <img src="goats-smiling.jpg" alt="Goats">
+        <div class="shop-card-body">
+          <span class="shop-card-tag">Year-round</span>
+          <h3>Goat's Milk Soap</h3>
+          <p>Made with milk from our own herd. Simple, gentle, and smells like the farm in the best possible way.</p>
+        </div>
+      </div>
+      <div class="shop-card">
+        <img src="raven-sign.jpg" alt="The property">
+        <div class="shop-card-body">
+          <span class="shop-card-tag">As available</span>
+          <h3>Handmade Goods</h3>
+          <p>Wreaths, ornaments, seasonal whimsy. Made when time allows, sold locally. Follow along to see what's next.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="the-shed">
+  <div class="the-shed-inner">
+    <div class="shed-photos reveal">
+      <div class="sp-tall">
+        <img src="studio-shed.jpg" alt="The studio shed open">
+      </div>
+      <div class="sp-sm">
+        <img src="raven-sign.jpg" alt="Raven House sign">
+      </div>
+      <div class="sp-sm">
+        <img src="girl-basket.jpg" alt="Little one with basket">
+      </div>
+    </div>
+    <div class="shed-text reveal d1">
+      <span class="eyebrow">The studio</span>
+      <h2>A shed at the edge<br>of the trees.<br><em>Built from salvage.</em></h2>
+      <p class="body-p">The studio started as a project — something to build, something to use. Old boards, a found door, pieces from other things. It's where candles get poured, soap gets made, and crafts get dreamed up.</p>
+      <p class="body-p">Not everything made here ends up for sale. Some of it is just the work of having hands that need to make things.</p>
+    </div>
+  </div>
+</div>
+
+<div class="availability">
+  <div class="availability-inner reveal">
+    <span class="eyebrow">A note on availability</span>
+    <h2>We sell what we have, when we have it.</h2>
+    <p>This isn't a shop with consistent stock and a shipping department. Studio goods appear when time allows. The best way to find out what's available is to follow along on social or drop us a message.</p>
+    <p>We'll always be straight with you about what we have and when it's coming.</p>
+  </div>
+</div>
+
+<div class="eggs-panel reveal">
+  <img class="panel-img" src="eggs-carton.jpg" alt="Farm fresh eggs">
+  <div class="eggs-overlay"></div>
+  <div class="panel-body right">
+    <span class="eyebrow" style="color:var(--terra-pale); opacity:0.8;">Available now</span>
+    <h2 class="panel-h">Cluckers or quackers.<br><em>Your call.</em></h2>
+    <p class="panel-p">Pasture-raised and collected daily. Chicken eggs in cream, brown, and blue-green, or duck eggs if that's your thing. Sold by the dozen, Greenwood area pickup.</p>
+    <a href="rh-contact.html" class="btn-ghost">Get on the egg list</a>
+  </div>
+</div>
+
+<div class="egg-signup">
+  <div class="egg-signup-inner">
+    <div class="egg-signup-text reveal">
+      <span class="eyebrow" style="color:var(--terra-pale); opacity:0.75;">Join the list</span>
+      <h2>Never miss a dozen.</h2>
+      <p>We'll let you know when eggs are available and when something new comes out of the studio. No spam. Just eggs and the occasional exciting animal update.</p>
+    </div>
+    <div class="reveal d1">
+      <form class="egg-form" id="egg-form" action="https://formspree.io/f/mjgddzpn" method="POST">
+        <div class="egg-form-fields">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <select name="preference">
+            <option value="" disabled selected>Cluckers or quackers?</option>
+            <option value="chicken">Chicken eggs</option>
+            <option value="duck">Duck eggs</option>
+            <option value="both">Both, please</option>
+          </select>
+        </div>
+        <button type="submit">Get me on the list</button>
+      </form>
+      <div class="egg-thankyou" id="egg-thankyou" style="display:none;">
+        You're on the list. We'll be in touch when the girls (and the quackers) are feeling productive.
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="ravenhouselogo.png" alt="Raven House Co.">
+      <p>A working homestead in the Annapolis Valley of Nova Scotia. Farm life, handmade goods, and the honest work of raising a family close to the land.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="rh-about.html">About Us</a></li>
+        <li><a href="rh-farm.html">Farm & Homestead</a></li>
+        <li><a href="rh-shop.html">Shop & Studio</a></li>
+        <li><a href="rh-contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find us</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+      <div class="footer-email">
+        <h4 style="margin-top:1.5rem;">Say hello</h4>
+        <a href="mailto:hello@ravenhouseco.ca">hello@ravenhouseco.ca</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Raven House Co. — Annapolis Valley, NS</span>
+    <span>Laid by happy birds. Collected by noisy kids.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var h = document.getElementById('site-header');
+  window.addEventListener('scroll', function(){ h.classList.toggle('scrolled', window.scrollY > 80); }, { passive: true });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(function(r){ obs.observe(r); });
+  var form = document.getElementById('egg-form');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      fetch(form.action, { method:'POST', body: new FormData(form), headers:{'Accept':'application/json'} })
+        .then(function(r){ if(r.ok){ form.style.display='none'; document.getElementById('egg-thankyou').style.display='block'; } });
+    });
+  }
+})();
+</script>
+</body>
+</html>
